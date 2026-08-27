@@ -6,17 +6,15 @@ import { DrawerMenu } from './components/DrawerMenu';
 import { HomeScreen } from './components/HomeScreen';
 import { CommunityScreen } from './components/CommunityScreen';
 import { RosaryPlayerScreen } from './components/RosaryPlayerScreen';
-import { CursorPromptModal } from './components/CursorPromptModal';
 import { AppScreen, UserRole, MysteryType } from './types';
 import { OFFICIAL_IMAGES } from './data/mockData';
-import { Code2, HandMetal, Sparkles } from 'lucide-react';
+import { HandMetal } from 'lucide-react';
 
 export default function App() {
   const [currentScreen, setCurrentScreen] = useState<AppScreen>('gateway');
   const [userRole, setUserRole] = useState<UserRole>('devoto');
   const [isLsegActive, setIsLsegActive] = useState<boolean>(true);
   const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(false);
-  const [isPromptModalOpen, setIsPromptModalOpen] = useState<boolean>(false);
   const [selectedMysteryType, setSelectedMysteryType] = useState<MysteryType>('gozosos');
 
   const handleSelectRole = (role: UserRole) => {
@@ -32,10 +30,7 @@ export default function App() {
     <div className="min-h-screen bg-[#FFFDF5] text-[#1a1b1f] flex flex-col font-serif-sacred">
       {/* 1. Gateway Screen (when active) */}
       {currentScreen === 'gateway' ? (
-        <GatewayScreen
-          onSelectRole={handleSelectRole}
-          onOpenPromptHelper={() => setIsPromptModalOpen(true)}
-        />
+        <GatewayScreen onSelectRole={handleSelectRole} />
       ) : (
         /* 2. Main App Experience (Home, Community, Rosary) */
         <div className="flex-1 flex flex-col min-h-screen">
@@ -120,16 +115,6 @@ export default function App() {
                 <span>LSEG {isLsegActive ? 'Activada' : 'Desactivada'}</span>
               </button>
 
-              {/* Flutter prompt button */}
-              <button
-                onClick={() => setIsPromptModalOpen(true)}
-                className="px-3.5 py-1.5 rounded-full text-xs font-sans font-semibold bg-[#123068] text-[#fdbe50] hover:bg-[#001b49] transition-all flex items-center gap-1.5 border border-[#fdbe50]/30 shadow-2xs"
-                title="Ver Prompt para Cursor (Flutter)"
-              >
-                <Code2 className="w-3.5 h-3.5" />
-                Prompt Flutter
-              </button>
-
               {/* Role badge */}
               <button
                 onClick={() => setUserRole(userRole === 'devoto' ? 'cofrade' : 'devoto')}
@@ -190,13 +175,6 @@ export default function App() {
         userRole={userRole}
         onChangeRole={(role) => setUserRole(role)}
         onNavigate={(screen) => setCurrentScreen(screen)}
-        onOpenPromptModal={() => setIsPromptModalOpen(true)}
-      />
-
-      {/* Cursor Prompt Helper Modal */}
-      <CursorPromptModal
-        isOpen={isPromptModalOpen}
-        onClose={() => setIsPromptModalOpen(false)}
       />
     </div>
   );

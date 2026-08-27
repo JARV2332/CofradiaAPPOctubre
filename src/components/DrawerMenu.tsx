@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, User, Church, BookOpen, Clock, Heart, Shield, Code2, ExternalLink } from 'lucide-react';
+import { X, User, Church, BookOpen, Clock, Heart } from 'lucide-react';
 import { OFFICIAL_IMAGES } from '../data/mockData';
 import { UserRole, AppScreen } from '../types';
 
@@ -9,7 +9,6 @@ interface DrawerMenuProps {
   userRole: UserRole;
   onChangeRole: (role: UserRole) => void;
   onNavigate: (screen: AppScreen) => void;
-  onOpenPromptModal: () => void;
 }
 
 export const DrawerMenu: React.FC<DrawerMenuProps> = ({
@@ -18,7 +17,6 @@ export const DrawerMenu: React.FC<DrawerMenuProps> = ({
   userRole,
   onChangeRole,
   onNavigate,
-  onOpenPromptModal,
 }) => {
   if (!isOpen) return null;
 
@@ -123,26 +121,6 @@ export const DrawerMenu: React.FC<DrawerMenuProps> = ({
             >
               <BookOpen className="w-4 h-4 text-[#450003]" />
               Muro Cofrade e Intenciones
-            </button>
-
-            <div className="pt-3 pb-1">
-              <span className="text-[11px] font-sans font-semibold uppercase tracking-wider text-[#747781] px-3">
-                Información y Ayuda
-              </span>
-            </div>
-
-            <button
-              onClick={() => {
-                onOpenPromptModal();
-                onClose();
-              }}
-              className="w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-sans font-semibold text-[#001b49] bg-[#fdbe50]/20 border border-[#E5A93C]/40 hover:bg-[#fdbe50]/30 transition-all"
-            >
-              <span className="flex items-center gap-2.5">
-                <Code2 className="w-4 h-4 text-[#7e5700]" />
-                Prompt para Cursor (Flutter)
-              </span>
-              <ExternalLink className="w-3.5 h-3.5 text-[#7e5700]" />
             </button>
           </div>
         </div>

@@ -1,14 +1,13 @@
 import React from 'react';
-import { User, Church, Sparkles, BookOpen } from 'lucide-react';
+import { User, Church, Sparkles } from 'lucide-react';
 import { OFFICIAL_IMAGES } from '../data/mockData';
 import { UserRole } from '../types';
 
 interface GatewayScreenProps {
   onSelectRole: (role: UserRole) => void;
-  onOpenPromptHelper?: () => void;
 }
 
-export const GatewayScreen: React.FC<GatewayScreenProps> = ({ onSelectRole, onOpenPromptHelper }) => {
+export const GatewayScreen: React.FC<GatewayScreenProps> = ({ onSelectRole }) => {
   return (
     <div className="relative min-h-screen w-full flex flex-col justify-between items-center text-[#1a1b1f] overflow-hidden bg-[#FFFDF5]">
       {/* Decorative subtle background dot pattern */}
@@ -20,23 +19,12 @@ export const GatewayScreen: React.FC<GatewayScreenProps> = ({ onSelectRole, onOp
         }} 
       />
 
-      {/* Top Bar with Flutter Prompt modal button & subtle badge */}
-      <header className="w-full max-w-md px-5 pt-4 z-20 flex justify-between items-center">
+      {/* Top badge */}
+      <header className="w-full max-w-md px-5 pt-4 z-20 flex justify-start items-center">
         <span className="text-[11px] uppercase tracking-widest font-sans font-medium text-[#7e5700] bg-[#fdbe50]/20 px-3 py-1 rounded-full border border-[#E5A93C]/30 flex items-center gap-1.5">
           <Sparkles className="w-3 h-3 text-[#E5A93C]" />
           Guatemala • 1559
         </span>
-
-        {onOpenPromptHelper && (
-          <button
-            onClick={onOpenPromptHelper}
-            className="text-[11px] font-sans font-semibold text-[#001b49] bg-white/90 hover:bg-white px-3 py-1 rounded-full border border-[#c4c6d1] shadow-xs hover:shadow-sm transition-all flex items-center gap-1.5"
-            title="Ver Prompt para Cursor (Flutter & Dart)"
-          >
-            <BookOpen className="w-3.5 h-3.5 text-[#001b49]" />
-            Prompt Flutter
-          </button>
-        )}
       </header>
 
       {/* Top Spacer */}
