@@ -1,0 +1,6 @@
+{
+  "name": "Cofradía del Rosario",
+  "description": "Aplicación devocional y comunitaria para la Cofradía del Santo Rosario (Basílica de Santo Domingo, Guatemala) con rezo interactivo, lengua de señas, muro comunitario y avisos cofrades.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Source Serif 4', Georgia, serif;
+    background-color: #FFFDF5;
+    color: #1a1b1f;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Source Serif 4', Georgia, serif;
+  }
+
+  button, input, textarea, select, nav, .font-ui {
+    font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+}
+
+.font-serif-sacred {
+  font-family: 'Source Serif 4', Georgia, serif;
+}
+
+.font-sans-ui {
+  font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.gold-border {
+  border-color: #E5A93C;
+}
+
+.sacred-top-border {
+  border-top: 2px solid #E5A93C;
+}
+
+.religious-card {
+  background-color: #FFFFFF;
+  border: 0.5px solid #c4c6d1;
+  box-shadow: 0 4px 14px rgba(0, 27, 73, 0.04);
+}
+
+.pb-safe {
+  padding-bottom: max(env(safe-area-inset-bottom, 20px), 20px);
+}
